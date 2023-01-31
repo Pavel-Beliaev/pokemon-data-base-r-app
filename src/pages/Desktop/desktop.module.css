@@ -1,0 +1,33 @@
+.container {
+    background: #FFFFFF00 url('../../public/png/BG.png') center center/cover no-repeat;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.container_header {
+    width: 100%;
+    flex: 0 1 100%;
+    display: flex;
+    position: absolute;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+}
+
+.container_left_sidebar {
+    flex: 0 1 0;
+}
+
+.container_right_sidebar {
+    flex: 0 1 0;
+}
+
+.container_content {
+    padding: 8.25rem 4.375rem 0;
+    flex: 0 1 100%;
+}

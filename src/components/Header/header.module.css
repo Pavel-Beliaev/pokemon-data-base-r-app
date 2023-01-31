@@ -1,0 +1,63 @@
+.header {
+    height: 3.5rem;
+    width: 100%;
+    background: linear-gradient(180deg,
+    rgba(185, 251, 255, 0.2) 0%,
+    rgba(227, 220, 255, 0.2) 100%),
+    linear-gradient(180deg,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0) 100%),
+    rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(0.625rem);
+    border: 0.125rem solid #FFFFFF;
+    border-image: linear-gradient(
+            rgba(255, 255, 255, 1) 100%,
+            rgba(255, 255, 255, 0) 0%) 1;
+}
+
+.header_content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.188rem 25.375rem 1.125rem 23.75rem;
+}
+
+.content_status {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.content_status p {
+    line-height: 1.188rem;
+    font-family: 'SF Pro Display', sans-serif;
+    display: flex;
+    align-items: center;
+    color: #BBBBBB;
+}
+
+.content_status p span {
+    color: #62BD6B
+}
+
+.content_settings {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0;
+    gap: 0.625rem;
+    cursor: pointer;
+}
+
+.content_settings p {
+    line-height: 0.625rem;
+    font-family: 'SF Pro Display', sans-serif;
+    display: flex;
+    align-items: center;
+    text-align: right;
+    color: #565555;
+}
+
+/*---------------------------------------------------------------------*/
