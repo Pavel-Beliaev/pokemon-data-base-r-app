@@ -17,7 +17,6 @@
     transform: matrix(-1, 0, 0, 1, 0, 0);
     top: 5.75rem;
     right: 1.25rem;
-    cursor: pointer;
 }
 
 .block {

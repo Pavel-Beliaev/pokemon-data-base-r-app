@@ -3,9 +3,12 @@ import cl from './content.module.css'
 import List from "./List/List";
 
 const Content = () => {
+
+
+
     return (
         <div className={cl.content}>
-            <form>
+            <div className={cl.content_form}>
                 <input type="text" placeholder='Search'/>
                 <select name="" id="">
                     <option>Release Date</option>
@@ -15,7 +18,7 @@ const Content = () => {
                     <option>Descending</option>
                     <option>Release Date</option>
                 </select>
-            </form>
+            </div>
             <List/>
         </div>
     );

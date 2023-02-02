@@ -1,5 +1,6 @@
 import React from 'react';
 import './elementsList.css'
+import Skeleton from "react-loading-skeleton";
 
 const CardPokemon = ({
                          pokemonInfo,
@@ -11,20 +12,20 @@ const CardPokemon = ({
                          speed,
                          weight,
                          height,
-                         img_f_d,
-                         img_b_d,
-                         img_f_s,
-                         img_b_s,
+                         img_front_default,
+                         img_back_default,
+                         img_front_shiny,
+                         img_back_shiny,
                      }) => {
     return (
         <div className={pokemonInfo ? 'list_block_content_open' : 'list_block_content'}>
             <div>
                 <h4>PHOTO</h4>
                 <div className='block_img'>
-                    <img src={img_f_d} alt="img"/>
-                    <img src={img_b_d} alt="img"/>
-                    <img src={img_f_s} alt="img"/>
-                    <img src={img_b_s} alt="img"/>
+                    <img src={img_front_default} alt="img"/>
+                    <img src={img_back_default} alt="img"/>
+                    <img src={img_front_shiny} alt="img"/>
+                    <img src={img_back_shiny} alt="img"/>
                 </div>
             </div>
             <div className='block_content_elements'>

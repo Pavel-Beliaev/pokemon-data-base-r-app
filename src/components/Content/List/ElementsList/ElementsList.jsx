@@ -22,15 +22,14 @@ const ElementsList = ({name, url}) => {
                 speed: response.data.stats[5].base_stat,
                 weight: response.data.weight,
                 height: response.data.height,
-                img_f_d: response.data.sprites.front_default,
-                img_b_d: response.data.sprites.back_default,
-                img_f_s: response.data.sprites.front_shiny,
-                img_b_s: response.data.sprites.back_shiny,
+                img_front_default: response.data.sprites.front_default,
+                img_back_default: response.data.sprites.back_default,
+                img_front_shiny: response.data.sprites.front_shiny,
+                img_back_shiny: response.data.sprites.back_shiny,
             });
         };
         fetchData();
     }, []);
-    console.log()
 
     return (
         <div className={pokemonInfo ? 'list_element_open' : 'list_element_close'}>
@@ -59,10 +58,10 @@ const ElementsList = ({name, url}) => {
                 speed={pokemons.speed}
                 weight={pokemons.weight}
                 height={pokemons.height}
-                img_f_d={pokemons.img_f_d}
-                img_b_d={pokemons.img_b_d}
-                img_f_s={pokemons.img_f_s}
-                img_b_s={pokemons.img_b_s}
+                img_front_default={pokemons.img_front_default}
+                img_back_default={pokemons.img_back_default}
+                img_front_shiny={pokemons.img_front_shiny}
+                img_back_shiny={pokemons.img_back_shiny}
             />
         </div>
     );
