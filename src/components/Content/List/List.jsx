@@ -1,15 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import cl from './list.module.css'
 import ElementsList from "./ElementsList/ElementsList";
-import axios from "axios";
+import PokemonService from "../../../API/PokemonService";
 
 const List = () => {
-    const [pokemonName, setPokemonName] = useState([])
+    const [pokemonName, setPokemonName] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios("https://pokeapi.co/api/v2/pokemon");
-            setPokemonName(response.data.results);
+            setIsLoading(true);
+            setTimeout(async () => {
+                const pokemonData = await PokemonService.getAll();
+                setPokemonName(pokemonData);
+                setIsLoading(false);
+            }, 5000);
         };
         fetchData();
     }, []);
@@ -17,13 +22,15 @@ const List = () => {
 
     return (
         <div className={cl.block_list}>
-            {pokemonName.map(n =>
-                <ElementsList
-                    key={n.name}
-                    name={n.name}
-                    url={n.url}
-                />
-            )}
+            {isLoading
+                ? <p>Loading...</p>
+                : pokemonName.map(n =>
+                    <ElementsList
+                        key={n.name}
+                        name={n.name}
+                        url={n.url}
+                    />
+                )}
         </div>
     );
 };

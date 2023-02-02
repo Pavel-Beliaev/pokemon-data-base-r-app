@@ -1,0 +1,63 @@
+.skeleton {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0 0 0 86px;
+    gap: 31px;
+    width: 100%;
+}
+
+.skeleton_block_img {
+    display: flex;
+    gap: 5px;
+}
+
+.skeleton_block {
+    min-width: 135px;
+    min-height: 135px;
+}
+
+.skeleton_block_element {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 27px;
+    width: 100%;
+}
+
+.skeleton_block_text{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.skeleton h4 {
+    font-size: 14px;
+    line-height: 17px;
+
+}
+
+.skeleton p {
+    line-height: 19px;
+}
+
+.skeleton-line {
+    height: 1rem;
+    border-radius: 5px;
+    margin-bottom: 2px;
+    width: 100%;
+    background: linear-gradient(to right, #ececec 0%, #f5f5f5 20%, #ececec 40%);
+    background-size: 400% 100%;
+    animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200%;
+    }
+    100% {
+        background-position: -200%;
+    }
+}
