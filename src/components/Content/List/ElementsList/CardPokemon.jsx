@@ -1,6 +1,7 @@
 import React from 'react';
 import './elementsList.css'
 import 'react-loading-skeleton/dist/skeleton.css';
+import SkeletonCard from "../../../Loaders/SkeletonCards/SkeletonCard";
 
 const CardPokemon = ({
                          pokemonInfo,
@@ -16,6 +17,7 @@ const CardPokemon = ({
                          img_back_default,
                          img_front_shiny,
                          img_back_shiny,
+                         isLoading
                      }) => {
     return (
         <div className={pokemonInfo ? 'list_block_content_open' : 'list_block_content'}>

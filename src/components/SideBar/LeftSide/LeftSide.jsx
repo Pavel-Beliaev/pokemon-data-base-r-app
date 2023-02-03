@@ -7,6 +7,7 @@ import {TagsParams, SideBarMenuParams} from "../../../mock/static";
 import Tags from "../../Tags/Tags";
 import {Link} from "react-router-dom";
 import {Transition} from "@headlessui/react";
+import logoText from '../../../public/png/textlogo.png'
 
 
 const LeftSide = () => {
@@ -29,10 +30,7 @@ const LeftSide = () => {
                         leaveFrom='leaveFrom'
                         leaveTo='leaveTo'
                     >
-                        <p className='logo_p'>
-                            Dapplets Project
-                            <span>.</span>
-                        </p>
+                        <img src={logoText} alt="logoText" className='logo_p'/>
                     </Transition>
                 </div>
                 <SideBar params={SideBarMenuParams} isSideBar={isSideBar} setSideBar={setSideBar}/>

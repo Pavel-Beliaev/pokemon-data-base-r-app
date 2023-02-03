@@ -39,11 +39,11 @@ const ElementsList = ({name, url}) => {
     return (
         <div className={pokemonInfo ? 'list_element_open' : 'list_element_close'}>
             <div className='list_block_main'>
-                <BurgerIcon
-                    onClick={() => setPokemonInfo((pokemonInfo) => !pokemonInfo)}/>
+                <BurgerIcon/>
                 <img
                     src={pokemonInfo ? 'https://img.icons8.com/color/256/open-pokeball--v2.png' : 'https://img.icons8.com/color/256/pokeball.png'}
-                    alt="img"/>
+                    alt="img"
+                    onClick={() => setPokemonInfo((pokemonInfo) => !pokemonInfo)}/>
                 <div className='block_name'>
                     <h3>{name}</h3>
                     <p>id</p>

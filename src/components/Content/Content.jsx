@@ -3,9 +3,6 @@ import cl from './content.module.css'
 import List from "./List/List";
 
 const Content = () => {
-
-
-
     return (
         <div className={cl.content}>
             <div className={cl.content_form}>

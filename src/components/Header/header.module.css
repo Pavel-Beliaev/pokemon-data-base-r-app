@@ -18,7 +18,7 @@
 .header_content {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     padding: 1.188rem 25.375rem 1.125rem 23.75rem;
 }
 

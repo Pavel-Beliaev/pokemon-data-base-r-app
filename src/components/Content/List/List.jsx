@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import cl from './list.module.css'
 import ElementsList from "./ElementsList/ElementsList";
 import PokemonService from "../../../API/PokemonService";
+import LoaderDefault from "../../Loaders/LoaderDefault/LoaderDefault";
 
 const List = () => {
     const [pokemonName, setPokemonName] = useState([]);
@@ -19,11 +20,10 @@ const List = () => {
         fetchData();
     }, []);
 
-
     return (
         <div className={cl.block_list}>
             {isLoading
-                ? <p>Loading...</p>
+                ? <LoaderDefault/>
                 : pokemonName.map(n =>
                     <ElementsList
                         key={n.name}
