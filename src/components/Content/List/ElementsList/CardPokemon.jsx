@@ -1,71 +1,55 @@
-import React from 'react';
+import React  from 'react';
 import './elementsList.css'
-import 'react-loading-skeleton/dist/skeleton.css';
-import SkeletonCard from "../../../Loaders/SkeletonCards/SkeletonCard";
 
-const CardPokemon = ({
-                         pokemonInfo,
-                         hp,
-                         atk,
-                         def,
-                         spec_atk,
-                         spec_def,
-                         speed,
-                         weight,
-                         height,
-                         img_front_default,
-                         img_back_default,
-                         img_front_shiny,
-                         img_back_shiny,
-                         isLoading
-                     }) => {
+
+const CardPokemon = ({pokemonInfo,pokemonsStats}) => {
     return (
         <div className={pokemonInfo ? 'list_block_content_open' : 'list_block_content'}>
             <div>
                 <h4>PHOTO</h4>
                 <div className='block_img'>
-                    <img src={img_front_default} alt="img"/>
-                    <img src={img_back_default} alt="img"/>
-                    <img src={img_front_shiny} alt="img"/>
-                    <img src={img_back_shiny} alt="img"/>
+                    <img src={pokemonsStats.sprites.front_default} alt="img"/>
+                    <img src={pokemonsStats.sprites.back_default} alt="img"/>
+                    <img src={pokemonsStats.sprites.front_shiny} alt="img"/>
+                    <img src={pokemonsStats.sprites.back_shiny} alt="img"/>
                 </div>
             </div>
             <div className='block_content_elements'>
                 <div>
                     <h4>HP</h4>
-                    <p>{hp}</p>
+                    <p>{pokemonsStats.stats[0].base_stat}</p>
                 </div>
                 <div>
                     <h4>ATTACK</h4>
-                    <p>{atk}</p>
+                    <p>{pokemonsStats.stats[1].base_stat}</p>
                 </div>
                 <div>
                     <h4>DEFENSE</h4>
-                    <p>{def}</p>
+                    <p>{pokemonsStats.stats[2].base_stat}</p>
                 </div>
             </div>
             <div className='block_content_elements'>
                 <div>
                     <h4>SPECIAL-ATTACK</h4>
-                    <p>{spec_atk}</p>
+                    <p>{pokemonsStats.stats[3].base_stat}</p>
                 </div>
                 <div>
                     <h4>SPECIAL-DEFENSE</h4>
-                    <p>{spec_def}</p>
+                    <p>{pokemonsStats.stats[4].base_stat}</p>
                 </div>
                 <div>
                     <h4>SPEED</h4>
-                    <p>{speed}</p>
+                    <p>{pokemonsStats.stats[5].base_stat}</p>
                 </div>
             </div>
             <div className='block_content_elements'>
                 <div>
                     <h4>WEIGHT</h4>
-                    <p>{weight}</p>
+                    <p>{pokemonsStats.weight}</p>
                 </div>
                 <div>
                     <h4>HEIGHT</h4>
-                    <p>{height}</p>
+                    <p>{pokemonsStats.height}</p>
                 </div>
             </div>
         </div>

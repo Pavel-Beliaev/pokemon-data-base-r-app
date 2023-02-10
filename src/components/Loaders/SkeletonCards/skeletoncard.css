@@ -13,8 +13,8 @@
 }
 
 .skeleton_block {
-    min-width: 135px;
-    min-height: 135px;
+    min-width: 96px;
+    min-height: 96px;
 }
 
 .skeleton_block_element {
@@ -45,12 +45,13 @@
 
 .skeleton-line {
     height: 1rem;
-    border-radius: 5px;
-    margin-bottom: 2px;
+    border-radius: 100px;
+    margin-bottom: 5px;
     width: 100%;
     background: linear-gradient(to right, #ececec 0%, #f5f5f5 20%, #ececec 40%);
     background-size: 400% 100%;
     animation: shimmer 4s ease-in-out infinite;
+
 }
 
 @keyframes shimmer {

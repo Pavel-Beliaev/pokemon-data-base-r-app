@@ -7,11 +7,12 @@ const Content = () => {
         <div className={cl.content}>
             <div className={cl.content_form}>
                 <input type="text" placeholder='Search'/>
-                <select name="" id="">
-                    <option>Release Date</option>
+                <select name="Name" id="">
+                    <option disabled>Sort by</option>
+                    <option>Ascending</option>
                     <option>Descending</option>
                 </select>
-                <select name="" id="">
+                <select name="Stats" id="">
                     <option>Descending</option>
                     <option>Release Date</option>
                 </select>

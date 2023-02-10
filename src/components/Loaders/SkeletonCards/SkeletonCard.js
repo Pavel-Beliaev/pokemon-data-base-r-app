@@ -4,7 +4,7 @@ import './skeletoncard.css'
 const SkeletonCard = () => {
     return (
         <div className="skeleton">
-            <div>
+            <div className='skeleton_block_element'>
                 <h4 className="skeleton-line"></h4>
                 <div className='skeleton_block_img'>
                     <div className='skeleton-line skeleton_block'></div>

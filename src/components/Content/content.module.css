@@ -65,7 +65,7 @@
     rgba(255, 255, 255, 0.2) 0%,
     rgba(255, 255, 255, 0) 100%),
     rgba(255, 255, 255, 0.8)
-    url("../../public/svg/select_arrow.svg") right center no-repeat;
+    url("../../public/svg/select_arrow.svg") 98% center no-repeat;
     box-shadow: 0.625rem 0.625rem 2.5rem rgba(156, 185, 222, 0.36);
     border-radius: 0.625rem;
     width: 100%;
