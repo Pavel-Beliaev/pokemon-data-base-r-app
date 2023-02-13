@@ -10,7 +10,7 @@ export const useFetching = (callback) => {
             await callback();
             setTimeout(() => {
                 setIsLoading(false);
-            },3000)
+            },2000)
         } catch (e) {
             setIsLoading(false);
             setError(e.message);

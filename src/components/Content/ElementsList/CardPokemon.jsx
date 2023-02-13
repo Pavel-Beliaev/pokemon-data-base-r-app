@@ -1,17 +1,17 @@
-import React  from 'react';
+import React from 'react';
 import './elementsList.css'
 
 
-const CardPokemon = ({pokemonInfo,pokemonsStats}) => {
+const CardPokemon = ({pokemonInfo, pokemonsStats}) => {
     return (
         <div className={pokemonInfo ? 'list_block_content_open' : 'list_block_content'}>
             <div>
                 <h4>PHOTO</h4>
                 <div className='block_img'>
-                    <img src={pokemonsStats.sprites.front_default} alt="img"/>
-                    <img src={pokemonsStats.sprites.back_default} alt="img"/>
-                    <img src={pokemonsStats.sprites.front_shiny} alt="img"/>
-                    <img src={pokemonsStats.sprites.back_shiny} alt="img"/>
+                    <img src={pokemonsStats.sprites.front_default} alt=""/>
+                    <img src={pokemonsStats.sprites.back_default} alt=""/>
+                    <img src={pokemonsStats.sprites.front_shiny} alt=""/>
+                    <img src={pokemonsStats.sprites.back_shiny} alt=""/>
                 </div>
             </div>
             <div className='block_content_elements'>

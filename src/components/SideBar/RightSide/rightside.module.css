@@ -93,7 +93,10 @@ h2 {
     rgba(255, 255, 255, 0) 100%),
     rgba(255, 255, 255, 0.8);
     border-radius: 0.625rem;
-    border: solid;
+    border: 0.063rem solid #FFFFFF;
+    border-image: linear-gradient(
+            rgba(255, 255, 255, 1) 100%,
+            rgba(255, 255, 255, 0) 0%) 1;
 }
 
 .list_input input::placeholder {

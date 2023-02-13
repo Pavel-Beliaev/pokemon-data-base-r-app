@@ -1,0 +1,7 @@
+.filter {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem 1.25rem 1.25rem 1.25rem;
+}

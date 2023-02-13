@@ -1,0 +1,35 @@
+.custom {
+    width: 100%;
+    min-height: 2.5rem;
+    border-radius: 0.625rem;
+    border: none;
+    box-shadow: 0.625rem 0.625rem 2.5rem rgba(156, 185, 222, 0.36);
+    background: #FFFFFF url(../../../public/svg/search.svg) 0.625rem center no-repeat;
+}
+
+.custom[type=text] {
+    padding-left: 2.25rem;
+
+}
+
+.custom:hover {
+    background: linear-gradient(180deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 100%),
+    rgba(255, 255, 255, 0.8) url(../../../public/svg/search.svg) 0.625rem center no-repeat;
+    border-radius: 0.625rem;
+    border: 0.063rem solid #FFFFFF;
+    border-image: linear-gradient(
+            rgba(255, 255, 255, 1) 100%,
+            rgba(255, 255, 255, 0) 0%) 1;
+
+}
+
+.custom::placeholder {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 400;
+    line-height: 1.188rem;
+    display: flex;
+    align-items: center;
+    color: #BBBBBB;
+}
