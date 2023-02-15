@@ -2,8 +2,8 @@
     width: 20rem;
     height: 87.5rem;
     background: linear-gradient(180deg,
-    rgba(255, 251, 185, 0.2) 0%,
-    rgba(255, 227, 220, 0.2) 100%);
+    rgba(255,127,73,0.2) 0%,
+    rgba(255,249,220,0.2) 100%);
     backdrop-filter: blur(0.938rem);
     border: 0.125rem solid #FFFFFF;
     border-image: linear-gradient(
@@ -28,7 +28,6 @@
 }
 
 h2 {
-    font-family: 'SF Pro Display', sans-serif;
     font-weight: 600;
     font-size: 1.5rem;
     line-height: 1.813rem;
@@ -59,7 +58,6 @@ h2 {
 }
 
 .list_input p {
-    font-family: 'SF Pro Display', sans-serif;
     font-weight: 500;
     line-height: 1.188rem;
     display: flex;
@@ -80,7 +78,8 @@ h2 {
     border: none;
     width: 11.688rem;
     height: 2.5rem;
-    box-shadow: 0.625rem 0.625rem 2.5rem rgba(156, 185, 222, 0.36);
+    box-shadow: 0.625rem 0.625rem 2.5rem
+    rgba(156, 185, 222, 0.36);
 }
 
 .list_input input[type=text] {
@@ -100,7 +99,6 @@ h2 {
 }
 
 .list_input input::placeholder {
-    font-family: 'SF Pro Display', sans-serif;
     font-weight: 400;
     line-height: 1.188rem;
     display: flex;
@@ -117,16 +115,15 @@ h2 {
     gap: 0.625rem;
     width: 5.188rem;
     height: 2.5rem;
-    background: #0085FF;
     border-radius: 0.625rem;
-    font-family: 'SF Pro Display', sans-serif;
     font-weight: 500;
     font-size: 0.75rem;
     line-height: 0.875rem;
     text-align: center;
     text-transform: uppercase;
+    background: #FFB300;
+    border: 1px solid #FFFFFF;
     color: #FFFFFF;
-    border: none;
 }
 
 .list_tags {
@@ -168,7 +165,6 @@ h2 {
 }
 
 .block_links a {
-    font-family: 'SF Pro Display', sans-serif;
     font-weight: 400;
     line-height: 1.188rem;
     text-decoration: none;
@@ -182,8 +178,8 @@ h2 {
     width: 1.875rem;
     height: 87.5rem;
     background: linear-gradient(180deg,
-    rgba(255, 251, 185, 0.2) 0%,
-    rgba(255, 227, 220, 0.2) 100%);
+    rgba(255,127,73,0.2) 0%,
+    rgba(255,249,220,0.2) 100%);
     backdrop-filter: blur(0.938rem);
     translate: 99%;
     transition-duration: 300ms;

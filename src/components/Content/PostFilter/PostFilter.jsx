@@ -5,18 +5,17 @@ import SelectCuston from "../../UI/SelectCustom/SelectCuston";
 
 const PostFilter = ({filter, setFilter}) => {
 
-
     return (
         <div className={cl.filter}>
             <InputCustom
                 type='text'
                 placeholder='Search'
-                value={filter.query}
-                onChange={e => setFilter({...filter, query: e.target.value})}
+                value={filter.desiredName}
+                onChange={e => setFilter({...filter, desiredName: e.target.value})}
             />
             <SelectCuston
-                value={filter.sort}
-                onChange={selectedSort => setFilter({...filter, sort: selectedSort})}
+                value={filter.sortBy}
+                onChange={selectedSort => setFilter({...filter, sortBy: selectedSort})}
                 defaultValue='Sort by'
                 options={[
                     {value: 'asc', name: 'Ascending'},

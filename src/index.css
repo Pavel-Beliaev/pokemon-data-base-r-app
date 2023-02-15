@@ -3,7 +3,9 @@
   margin: 0;
   box-sizing: border-box;
   cursor: url("public/png/Cursor.png"), auto;
+
 }
 * input {
   outline:none;
 }
+

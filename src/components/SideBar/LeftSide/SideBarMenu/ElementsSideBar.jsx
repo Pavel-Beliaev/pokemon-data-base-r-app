@@ -9,7 +9,7 @@ const ElementsSideBar = ({image, name, isSideBar}) => {
         position: 'absolute',
         filter: 'blur(0.625rem)',
         fill: isBackground
-            ? '#0085FF'
+            ? '#FF8400'
             : 'none'
     }
 

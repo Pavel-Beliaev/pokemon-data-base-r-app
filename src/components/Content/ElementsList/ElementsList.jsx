@@ -12,7 +12,7 @@ import {getIdUrl} from "../../../utils/parsing";
 const ElementsList = ({name, url}) => {
     const [pokemonInfo, setPokemonInfo] = useState(false);
     const [pokemonsStats, setPokemonsStats] = useState(null);
-    const [id, setId] = useState(null)
+    // const [id, setId] = useState(null)
     const [fetchData, isLoading, errorData] = useFetching(async () => {
         const pokemons = await PokemonService.getParams(url);
         if (pokemonInfo) {
@@ -23,10 +23,10 @@ const ElementsList = ({name, url}) => {
     useEffect(() => {
         if (pokemonInfo) {
             fetchData();
-            setId(getIdUrl(url));
+            // setId(getIdUrl(url));
         }else {
             setPokemonsStats(null);
-            setId(null);
+            // setId(null);
         }
     }, [pokemonInfo])
 

@@ -1,25 +1,36 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import cl from './content.module.css'
 import LoaderDefault from "../Loaders/LoaderDefault/LoaderDefault";
 import ElementsList from "./ElementsList/ElementsList";
 import {useFetching} from "../hooks/useFetching";
 import PokemonService from "../../API/PokemonService";
-import {usePosts} from "../hooks/usePost";
 import PostFilter from "./PostFilter/PostFilter";
+import {useFilter} from "../hooks/useFilter";
+import {useSort} from "../hooks/useSort";
+import {getPageCount} from "../../utils/pages";
 
 const Content = () => {
-    const [pokemonName, setPokemonName] = useState([]);
-    const [filter, setFilter] = useState({sort: '', query: ''});
-    const sortedAndSearched = usePosts(pokemonName, filter.sort, filter.query);
-    const [fetchData, isLoading, errorData] = useFetching(async () => {
-        const pokemonData = await PokemonService.getAll();
-        setPokemonName(pokemonData);
+    const [totalPages, setTotalPages] = useState(0);
+    const [limit, setLimit] = useState(10);
+    const [page, setPage] = useState(1);
+
+    //     setPokemonsList({...pokemonsList, ...pokemonsData.results});
+
+    const [pokemonsList, setPokemonsList] = useState([]);
+    const [filter, setFilter] = useState({sortBy: '', desiredName: ''});
+    const [fetchData, isLoading, errorData] = useFetching(async (limit, page) => {
+        const pokemonsData = await PokemonService.getAll(limit, page);
+        setPokemonsList(pokemonsData.results);
+        const totalCount = pokemonsData.count;
+        setTotalPages(getPageCount(totalCount, limit));
     })
+    const foundPokemons = useFilter(pokemonsList, filter.desiredName);
+    const sortedList = useSort(foundPokemons, filter.sortBy);
+    const lastElement = useRef()
 
     useEffect(() => {
-        fetchData();
-    }, []);
-
+        fetchData(limit, page);
+    }, [page]);
 
     return (
         <div className={cl.content}>
@@ -28,20 +39,23 @@ const Content = () => {
                 setFilter={setFilter}
             />
             <div className={cl.block_list}>
+
                 {errorData &&
                     <h1>Error: ${errorData}</h1>
                 }
                 {isLoading
                     ? <LoaderDefault/>
-                    : sortedAndSearched.map(n =>
-                        <ElementsList
-                            key={n.name}
-                            name={n.name}
-                            url={n.url}
-                            isLoading={isLoading}
-                        />
-                    )}
+                    : sortedList && sortedList.map(n =>
+                    <ElementsList
+                        key={n.name}
+                        name={n.name}
+                        url={n.url}
+                        isLoading={isLoading}
+                    />
+                )}
+                <div ref={lastElement}/>
             </div>
+
         </div>
     );
 };

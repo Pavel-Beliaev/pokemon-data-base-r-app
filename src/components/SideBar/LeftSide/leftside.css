@@ -2,8 +2,8 @@
     width: 22.5rem;
     height: 87.5rem;
     background: linear-gradient(180deg,
-    rgba(255, 251, 185, 0.2) 0%,
-    rgba(255, 227, 220, 0.2) 100%);
+    rgba(255,127,73,0.2) 0%,
+    rgba(255,249,220,0.2) 100%);
     backdrop-filter: blur(0.938rem);
     border: 0.125rem solid #FFFFFF;
     border-image: linear-gradient(
@@ -52,7 +52,6 @@
 }
 
 .block_lists h3 {
-    font-family: 'SF Pro Display', sans-serif;
     font-weight: 600;
     line-height: 1.188rem;
     display: flex;
@@ -61,7 +60,6 @@
 }
 
 .block_lists > p {
-    font-family: 'SF Pro Display', sans-serif;
     font-weight: 400;
     line-height: 1.188rem;
     display: flex;
@@ -70,7 +68,7 @@
 }
 
 .block_lists a {
-    color: #0085FF;
+    color: #009DFF;
 }
 
 .block_tags {
@@ -90,8 +88,8 @@
     width: 6rem;
     height: 87.5rem;
     background: linear-gradient(180deg,
-    rgba(255, 251, 185, 0.2) 0%,
-    rgba(255, 227, 220, 0.2) 100%);
+    rgba(255,127,73,0.2) 0%,
+    rgba(255,249,220,0.2) 100%);
     backdrop-filter: blur(0.938rem);
     border: 0.063rem solid #FFFFFF;
     border-image: linear-gradient(
