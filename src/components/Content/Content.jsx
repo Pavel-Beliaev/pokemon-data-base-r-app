@@ -8,25 +8,27 @@ import PostFilter from "./PostFilter/PostFilter";
 import {useFilter} from "../hooks/useFilter";
 import {useSort} from "../hooks/useSort";
 import {getPageCount} from "../../utils/pages";
+import {useObserver} from "../hooks/useObserver";
 
 const Content = () => {
     const [totalPages, setTotalPages] = useState(0);
     const [limit, setLimit] = useState(10);
     const [page, setPage] = useState(1);
-
-    //     setPokemonsList({...pokemonsList, ...pokemonsData.results});
-
     const [pokemonsList, setPokemonsList] = useState([]);
     const [filter, setFilter] = useState({sortBy: '', desiredName: ''});
     const [fetchData, isLoading, errorData] = useFetching(async (limit, page) => {
         const pokemonsData = await PokemonService.getAll(limit, page);
-        setPokemonsList(pokemonsData.results);
+        setPokemonsList([...pokemonsList, ...pokemonsData.results]);
         const totalCount = pokemonsData.count;
         setTotalPages(getPageCount(totalCount, limit));
     })
     const foundPokemons = useFilter(pokemonsList, filter.desiredName);
     const sortedList = useSort(foundPokemons, filter.sortBy);
     const lastElement = useRef()
+
+    useObserver(lastElement, page < totalPages, isLoading, () => {
+        setPage(page + 1);
+    });
 
     useEffect(() => {
         fetchData(limit, page);
@@ -39,13 +41,10 @@ const Content = () => {
                 setFilter={setFilter}
             />
             <div className={cl.block_list}>
-
                 {errorData &&
                     <h1>Error: ${errorData}</h1>
                 }
-                {isLoading
-                    ? <LoaderDefault/>
-                    : sortedList && sortedList.map(n =>
+                {sortedList && sortedList.map(n =>
                     <ElementsList
                         key={n.name}
                         name={n.name}
@@ -53,7 +52,10 @@ const Content = () => {
                         isLoading={isLoading}
                     />
                 )}
-                <div ref={lastElement}/>
+                <div ref={lastElement} className={cl.endless}/>
+                {isLoading &&
+                    <LoaderDefault/>
+                }
             </div>
 
         </div>

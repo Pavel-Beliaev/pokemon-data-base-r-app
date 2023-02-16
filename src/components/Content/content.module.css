@@ -57,3 +57,8 @@
 .block_list::-webkit-scrollbar {
     display: none;
 }
+
+.endless{
+    width: 100%;
+    display: flex;
+}

@@ -7,7 +7,6 @@ import CardPokemon from "./CardPokemon";
 import {useFetching} from "../../hooks/useFetching";
 import PokemonService from "../../../API/PokemonService";
 import SkeletonCard from "../../Loaders/SkeletonCards/SkeletonCard";
-import {getIdUrl} from "../../../utils/parsing";
 
 const ElementsList = ({name, url}) => {
     const [pokemonInfo, setPokemonInfo] = useState(false);
@@ -19,7 +18,6 @@ const ElementsList = ({name, url}) => {
             setPokemonsStats(pokemons);
         }
     });
-
     useEffect(() => {
         if (pokemonInfo) {
             fetchData();
