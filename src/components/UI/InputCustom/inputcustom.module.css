@@ -32,3 +32,8 @@
     align-items: center;
     color: #BBBBBB;
 }
+
+.custom[type=checkbox] {
+    width: 25px;
+    height: 25px;
+}

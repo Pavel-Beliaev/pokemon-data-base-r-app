@@ -17,6 +17,7 @@
     align-items: center;
     padding: 0.75rem 1.25rem;
     gap: 1.25rem;
+
 }
 
 .list_element_close:hover {
@@ -35,6 +36,10 @@
     width: 100%;
     align-items: center;
     justify-content: space-between;
+}
+
+.list_block_main_svg, svg {
+    cursor: grab;
 }
 
 .list_block_main img {
@@ -179,4 +184,8 @@
 .block_img img {
     width: 135px;
     height: 135px;
+}
+/*------------------------------------------------------*/
+.dragOver {
+    background-color: #009DFF;
 }

@@ -22,6 +22,10 @@ const PostFilter = ({filter, setFilter}) => {
                     {value: 'desc', name: 'Descending'},
                 ]}
             />
+            <InputCustom
+            type='checkbox'
+            />
+            <p>Infinity </p>
         </div>
     );
 };

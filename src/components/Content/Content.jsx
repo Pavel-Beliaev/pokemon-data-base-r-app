@@ -16,6 +16,9 @@ const Content = () => {
     const [page, setPage] = useState(1);
     const [pokemonsList, setPokemonsList] = useState([]);
     const [filter, setFilter] = useState({sortBy: '', desiredName: ''});
+    const [currentDragCard, setCurrentDragCard]= useState({});
+    const [isDragAble, setIsDragAble] = useState(false);
+
     const [fetchData, isLoading, errorData] = useFetching(async (limit, page) => {
         const pokemonsData = await PokemonService.getAll(limit, page);
         setPokemonsList([...pokemonsList, ...pokemonsData.results]);
@@ -23,16 +26,28 @@ const Content = () => {
         setTotalPages(getPageCount(totalCount, limit));
     })
     const foundPokemons = useFilter(pokemonsList, filter.desiredName);
-    const sortedList = useSort(foundPokemons, filter.sortBy);
+    const [sortedList, setSortedList] = useSort(foundPokemons, filter.sortBy);
     const lastElement = useRef()
 
     useObserver(lastElement, page < totalPages, isLoading, () => {
         setPage(page + 1);
-    });
+    }, false);
 
     useEffect(() => {
         fetchData(limit, page);
     }, [page]);
+
+    const sortHandler = (currentCard, card) => {
+        setSortedList(sortedList.map(c => {
+                if (c.name === card.name) {
+                    return currentCard
+                }
+                if (c.name === currentCard.name) {
+                    return card
+                }
+                return c
+            }))
+    }
 
     return (
         <div className={cl.content}>
@@ -49,7 +64,11 @@ const Content = () => {
                         key={n.name}
                         name={n.name}
                         url={n.url}
-                        isLoading={isLoading}
+                        sortHandler={sortHandler}
+                        currentDragCard={currentDragCard}
+                        setCurrentDragCard={setCurrentDragCard}
+                        isDragAble={isDragAble}
+                        setIsDragAble={setIsDragAble}
                     />
                 )}
                 <div ref={lastElement} className={cl.endless}/>

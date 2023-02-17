@@ -2,16 +2,19 @@ import {useMemo, useState} from "react";
 import {useDebounce} from "./useDebounce";
 
 export const useSort = (pokemonsList, sortBy) => {
-    const sortedList = useMemo(() => {
+    const [sortedList, setSortedList] = useState(pokemonsList);
+
+    useMemo(() => {
         if (sortBy === 'asc') {
-            return [...pokemonsList].sort((a, b) =>
-                a.name.localeCompare(b.name))
+            setSortedList([...pokemonsList].sort((a, b) =>
+                a.name.localeCompare(b.name)))
         } else if (sortBy === 'desc') {
-            return [...pokemonsList].sort((a, b) =>
-                b.name.localeCompare(a.name))
+            setSortedList([...pokemonsList].sort((a, b) =>
+                b.name.localeCompare(a.name)))
+        } else {
+            setSortedList(pokemonsList)
         }
-        return pokemonsList;
     }, [sortBy, pokemonsList])
 
-    return sortedList;
+    return [sortedList, setSortedList];
 }

@@ -8,31 +8,80 @@ import {useFetching} from "../../hooks/useFetching";
 import PokemonService from "../../../API/PokemonService";
 import SkeletonCard from "../../Loaders/SkeletonCards/SkeletonCard";
 
-const ElementsList = ({name, url}) => {
+const ElementsList = ({
+                          url,
+                          name,
+                          sortHandler,
+                          currentDragCard,
+                          setCurrentDragCard,
+                          isDragAble,
+                          setIsDragAble,
+                      }) => {
+    const card = {name, url}
     const [pokemonInfo, setPokemonInfo] = useState(false);
     const [pokemonsStats, setPokemonsStats] = useState(null);
-    // const [id, setId] = useState(null)
+
+
     const [fetchData, isLoading, errorData] = useFetching(async () => {
         const pokemons = await PokemonService.getParams(url);
         if (pokemonInfo) {
             setPokemonsStats(pokemons);
         }
     });
+
     useEffect(() => {
         if (pokemonInfo) {
             fetchData();
-            // setId(getIdUrl(url));
-        }else {
+        } else {
             setPokemonsStats(null);
-            // setId(null);
         }
     }, [pokemonInfo])
 
+    function dragStartHandler(e, card) {
+        if (isDragAble) {
+            setCurrentDragCard(card);
+        }
+    }
 
+    function dragOverHandler(e) {
+        if (isDragAble) {
+            e.preventDefault();
+        }
+    }
+
+    function dropHandler(e, card) {
+        if (isDragAble) {
+            e.preventDefault();
+            sortHandler(currentDragCard, card);
+            setIsDragAble(false);
+        }
+    }
+
+    const DragAble = () => {
+        setIsDragAble(true)
+    }
+
+    const DragEnable = () => {
+        setIsDragAble(false)
+
+    }
+    console.log(isDragAble)
     return (
-        <div className={pokemonInfo ? 'list_element_open' : 'list_element_close'}>
+        <div
+            onDragStart={(e) => dragStartHandler(e, card)}
+            onDragOver={(e) => dragOverHandler(e)}
+            onDrop={(e) => dropHandler(e, card)}
+            className={pokemonInfo ? 'list_element_open' : 'list_element_close'}
+            draggable={isDragAble}
+        >
             <div className='list_block_main'>
-                <BurgerIcon/>
+                <div
+                    className='list_block_main_svg'
+                    onMouseDown={DragAble}
+                    onMouseUp={DragEnable}
+                >
+                    <BurgerIcon/>
+                </div>
                 <img
                     src={pokemonInfo ? 'https://img.icons8.com/color/256/open-pokeball--v2.png' : 'https://img.icons8.com/color/256/pokeball.png'}
                     alt="img"
