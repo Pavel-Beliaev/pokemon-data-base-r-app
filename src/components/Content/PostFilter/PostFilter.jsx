@@ -3,7 +3,7 @@ import cl from './postfilter.module.css'
 import InputCustom from "../../UI/InputCustom/InputCustom";
 import SelectCuston from "../../UI/SelectCustom/SelectCuston";
 
-const PostFilter = ({filter, setFilter}) => {
+const PostFilter = ({filter, setFilter, setIsPaginationAble, isPaginationAble}) => {
 
     return (
         <div className={cl.filter}>
@@ -22,10 +22,13 @@ const PostFilter = ({filter, setFilter}) => {
                     {value: 'desc', name: 'Descending'},
                 ]}
             />
-            <InputCustom
-            type='checkbox'
-            />
-            <p>Infinity </p>
+            <div className={cl.filter_checkbox}>
+                <InputCustom
+                    type='checkbox'
+                    onChange={() => setIsPaginationAble((isPaginationAble) => !isPaginationAble)}
+                />
+                <p>Infinity scroll</p>
+            </div>
         </div>
     );
 };

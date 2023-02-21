@@ -9,6 +9,7 @@ import {useFilter} from "../hooks/useFilter";
 import {useSort} from "../hooks/useSort";
 import {getPageCount} from "../../utils/pages";
 import {useObserver} from "../hooks/useObserver";
+import Pagination from "../UI/Pagination/Pagination";
 
 const Content = () => {
     const [totalPages, setTotalPages] = useState(0);
@@ -18,10 +19,13 @@ const Content = () => {
     const [filter, setFilter] = useState({sortBy: '', desiredName: ''});
     const [currentDragCard, setCurrentDragCard]= useState({});
     const [isDragAble, setIsDragAble] = useState(false);
+    const [isPaginationAble, setIsPaginationAble] = useState(false)
 
     const [fetchData, isLoading, errorData] = useFetching(async (limit, page) => {
         const pokemonsData = await PokemonService.getAll(limit, page);
-        setPokemonsList([...pokemonsList, ...pokemonsData.results]);
+        if (!isPaginationAble) {
+            setPokemonsList(pokemonsData.results)
+        }else setPokemonsList([...pokemonsList, ...pokemonsData.results]);
         const totalCount = pokemonsData.count;
         setTotalPages(getPageCount(totalCount, limit));
     })
@@ -31,7 +35,7 @@ const Content = () => {
 
     useObserver(lastElement, page < totalPages, isLoading, () => {
         setPage(page + 1);
-    }, false);
+    }, !isPaginationAble);
 
     useEffect(() => {
         fetchData(limit, page);
@@ -49,11 +53,17 @@ const Content = () => {
             }))
     }
 
+    const onPageChange = (page) => {
+        setPage(page)
+    }
+
     return (
         <div className={cl.content}>
             <PostFilter
                 filter={filter}
                 setFilter={setFilter}
+                setIsPaginationAble={setIsPaginationAble}
+                isPaginationAble={isPaginationAble}
             />
             <div className={cl.block_list}>
                 {errorData &&
@@ -76,6 +86,14 @@ const Content = () => {
                     <LoaderDefault/>
                 }
             </div>
+            {!isPaginationAble &&
+                <Pagination
+                totalPages={totalPages}
+                page={page}
+                onPageChange={onPageChange}
+                className={cl.pagination_bar}
+                />
+            }
 
         </div>
     );

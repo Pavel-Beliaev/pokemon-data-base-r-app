@@ -1,10 +1,16 @@
 export const getPageCount = (totalCount, limit) => {
     return Math.ceil(totalCount / limit)
 }
-// export const getPagesArray = (totalPages) => {
-//     let result = [];
-//     for (let i = 0; i < totalPages; i++) {
-//         result.push(i + 1)
-//     }
-//     return result;
-// }
+
+// export const getPagesArray = (start, end) => {
+//     let length = end - start + 1;
+//     return Array.from({ length }, (_, idx) => idx + start);
+// };
+
+export const getPagesArray = (totalPages) => {
+    const respons = []
+    for (let i = 1; i <= totalPages; i++) {
+        respons.push(i);
+    }
+    return respons
+}

@@ -45,6 +45,7 @@
     padding: 1.25rem 1.25rem 0 1.25rem;
     gap: 1.25rem;
     border-top: 0.063rem solid #FFFFFF;
+    border-bottom: 0.063rem solid #FFFFFF;
     border-image: linear-gradient(
             rgba(255, 255, 255, 1) 100%,
             rgba(255, 255, 255, 0) 0%) 1;
@@ -63,3 +64,8 @@
     display: flex;
 }
 
+.pagination_bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

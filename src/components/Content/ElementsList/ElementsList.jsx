@@ -65,7 +65,7 @@ const ElementsList = ({
         setIsDragAble(false)
 
     }
-    console.log(isDragAble)
+
     return (
         <div
             onDragStart={(e) => dragStartHandler(e, card)}
